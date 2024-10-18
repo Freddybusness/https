@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Emailjs</title>
+</head>
+<body>
+    <h1> test de l envoi d emails</h1>
+<form id="testForm">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="from_name"><br>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="reply_to"><br>
+    <label for="message">Message:</label>
+    <textarea id="message"name="message"></textarea><br>
+    <button type="submit">Envoyer</button>
+</form>
+<script src="https://cdn.emailjs.com/dist/email.min.js">
+   (function(){
+    emailjs.init("16r1C6HyXND9hfV0v");
+   })();
+document.getElementById('textForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const ServiceID='KL7jcrn';
+    const templateID= 'Kydumvb';
+    emailjs.sendForm(ServiceID , templateID, this)
+    .then(function(reponse) {
+        console.log('succes ! , reponse.status, reponse.text');
+        alert('Message envoye avec succes !');
+    } , function(error) {
+        console.log('Erreur :',error);
+        alert('Echec de l envoi du message.');
+    });
+});
+</script>
+</body>
+</html>
