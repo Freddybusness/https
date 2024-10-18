@@ -22,8 +22,8 @@
    })();
 document.getElementById('textForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const ServiceID='KL7jcrn';
-    const templateID= 'Kydumvb';
+    const ServiceID='service_Kl7jcrn';
+    const templateID= 'template_Kydumvb';
     emailjs.sendForm(ServiceID , templateID, this)
     .then(function(reponse) {
         console.log('succes ! , reponse.status, reponse.text');
